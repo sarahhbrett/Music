@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>iMusic</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id = "banner">
+	<p1>iMusicReview</p1>
+</div>
+
+<div id="nav">
+	<ul>
+	    
+	    
+		<li><%=link_to "About", "#" %></li>
+		<li><%=link_to "Latest Music", 'http://www.itunes.com' %></li>
+		<li><%=mail_to "Sarah.brett123@gmail.com", "Mail" %></li>
+		<li><%=link_to "Music", "movie_path"	%></li>
+	</ul>
+</div>
+
+<% flash.each do |key, value|%>
+	<div class ="flash <%= key %>">
+		<%= value %>
+	</div>
+<% end %>
+
+<%= yield %>
+
+
+</body>
+</html>
