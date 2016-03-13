@@ -1,6 +1,8 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorise, only: [:new, :edit, :update, :destroy]
+ #@albums = Albums.paginate(:page => params[:page], :per_page => 2)
+  
   # GET /albums
   # GET /albums.json
   def index

@@ -1,20 +1,25 @@
 body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  background-image: image-url('ny.jpg');
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-color: #F0FFFF;
+  background-size: 100% 100%;
+  
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  
 }
 
 pre {
-  background-color: #eee;
+  background-color: #F0FFFF;
   padding: 10px;
+  display: block; 
   font-size: 11px;
 }
 
@@ -60,7 +65,7 @@ div {
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
-    color: #fff;
+    color: #F0FFFF;
   }
   ul li {
     font-size: 12px;

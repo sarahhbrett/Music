@@ -1,3 +1,5 @@
+<div class="container">
+<div class="jumbotron">
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -21,17 +23,42 @@
   </div>
   <div class="field">
     <%= f.label :dob %><br>
-    <%= f.date_select :dob %>
+    <%= f.date_select :dob, { :start_year => 1920, :end_year => 2010 } %>
+
   </div>
   <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.label :sex %><br>
+	<%= f.select :sex,["Male", "Female"], prompt: "Pick one"%>
+
   </div>
   <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.text_area :password_digest %>
+    <%= f.label :regular %><br>
+    <%= f.check_box :regular %>
   </div>
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.text_field :photo %>
+  </div>
+  
+  
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
+  </div>
+  </div>
   </div>
 <% end %>

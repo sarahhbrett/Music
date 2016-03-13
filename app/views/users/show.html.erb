@@ -1,29 +1,62 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Dob:</strong>
-  <%= @user.dob %>
-</p>
+<body>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
-</p>
+<div class="container">
+  <h2>User</h2>       
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+		<th>Date of Birth</th>
+		<th>Age</th>
+		<th>Photo</th>
+		<th>Sex </th>
+		<th>Regular</th>
+		<th>Password</th>
+		<th>Address</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+	
+      <tr>
+	  
+       <td> <%= @user.name %></td>
+       <td> <%= @user.email %></td>
+       <td> <%= @user.dob %></td>
+	   <td> <%= @user.age(@user.dob) %></td>
+	   <td> <%= image_tag @user.photo %></td>
+	   <td> <%= @user.sex %></td>
+	   <td> <%= @user.regular %></td>
+	   <td> <%= @user.password_digest %></td>
+	   <td> <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sesnor=false&zoom=16&markers=#{@user.latitude}%2C#{@user.longitude}" %></td>
+       <td> <%= link_to 'Edit', edit_user_path(@user) %></td>
+       <td> <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	   
+      </tr>
+	 
+    </tbody>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+  </table>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</body>
+
+</html>
+
+<%= button_to('View Users', users_path, class: 'btn btn-large btn-primary', method: :get) %>
+
+

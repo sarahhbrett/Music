@@ -1,2 +1,58 @@
-<h1> Welcome to this wonderful Music Review Site</h1>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://arrow.scrolltotop.com/arrow86.js"></script>
+<noscript>Not seeing a <a href="http://www.scrolltotop.com/">Scroll to Top Button</a>? Go to our FAQ page for more info.</noscript>
+
+
+<div class="container">
+		<h1> Click to see all albums</h1>
+        <a href="<%= albums_path %>" class="thumbnail">
+             <%= image_tag "chillies.png", :size => "100x50" %>
+        </a>
+		<h1> Click to see all artists</h1>
+        <a href="<%= artists_path %>" class="thumbnail">
+             <%= image_tag "mas.jpeg", :size => "200x100" %>
+        </a>
+</div>
+
+<div class="well">
+                    <div class="section-inner">
+                        <a href="http://www.bbc.co.uk/radio1/chart/singles"><h1>UK Top 40 Singles</h1></a>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                <li><%= image_tag "work.png" %></i> <a href="https://www.youtube.com/watch?v=HL1UzIK-flA">Work - Rihanna ft Drake</a></li>
+                                <li><%= image_tag "zayn.jpg" %></i> <a href="https://www.youtube.com/watch?v=C_3d6GntKbk">PillowTalk - ZAYN</a></li>
+                                <li><%= image_tag "love.jpg" %></i> <a href="https://www.youtube.com/watch?v=oyEuk8j8imI">Love yourself - Justin B</a></li>
+                                <li><%= image_tag "7years.jpg" %></i> <a href="https://www.youtube.com/watch?v=jErJimwom94">7 Years - Lucas Graham</a></li>
+								<p>&copy; BBC </p>
+                            </ul>
+                        </div><!--//content-->
+                    </div>
+                
+</div>				
+				
+<% if !signed_in? %>
+          <%= button_to('Sign Up!', new_user_path, class: 'btn btn-large btn-primary', method: :get)  %>
+          <%= button_to('Sign In!', login_path, class: 'btn btn-large btn-success', method: :get)  %>
+		<% else %>
+		  Signed in as <%= @current_user.name %>
+		  <img class="profile-image img-responsive pull-left" src="<%= image_tag user.photo %>" />
+		  <%= button_to("Sign Out", logout_path, class: 'btn btn-large btn-danger', method: :get) %> 
+		  
+<%end %>
+
+<%= button_to('Connect with me!', "https://www.github.com/sarahhbrett" , class: 'btn btn-large btn-primary', method: :get)  %>
+
+
+</body>
+   
+
+
+
+
+
+
+
 

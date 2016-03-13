@@ -1,29 +1,79 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @album.name %>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Albums</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @album.artist_id %>
-</p>
+<div class="container">
+  <h2>Albums</h2>       
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Artist</th>
+		<th>Number of Songs</th>
+		<th>Picture</th>
+		<th>Music Video</th>
+        
+      </tr>
+    </thead>
+    <tbody>
 
-<p>
-  <strong>Songs:</strong>
-  <%= @album.songs %>
-</p>
+      <tr>
+       <td> <%= @album.name %> </td>
+       <td> <%= @album.artist_id %> </td>
+       <td> <%= @album.songs %> </td>
+	   <td> <%= image_tag @album.picture, :size => "200x200" %> </td>
+	   <td> <%= sanitize @album.musicVideo, :tags => ['iframe'] %> </td>
+	   
+	   <td><%= link_to 'Show', @album %></td>
+       <td><%= link_to 'Edit', edit_album_path %></td>
+       <td><%= link_to 'Destroy', @album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	   <td><%= link_to 'Post a review for this album!', reviews_path %></td>
+	   
+	   
+      </tr>
+	 
+    </tbody>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @album.picture %>
-</p>
+  </table>
+</div>
 
-<p>
-  <strong>Musicvideo:</strong>
-  <%= @album.musicVideo %>
-</p>
+</body>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+</html>
+
+<%= button_to('New Album', new_album_path, class: 'btn btn-large btn-primary', method: :get) %>
+<%= button_to('View Albums', albums_path, class: 'btn btn-large btn-primary', method: :get) %>
+<%= button_to('See all reviews', reviews_path, class: 'btn btn-large btn-primary', method: :get) %>
+
+
+
+
+
+
+
+
+	
+	
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

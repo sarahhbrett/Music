@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217125940) do
+ActiveRecord::Schema.define(version: 20160311165546) do
 
   create_table "albums", force: true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160217125940) do
     t.text     "musicVideo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "review"
   end
 
   create_table "artists", force: true do |t|
@@ -44,10 +45,15 @@ ActiveRecord::Schema.define(version: 20160217125940) do
     t.string   "name"
     t.string   "email"
     t.date     "dob"
-    t.string   "gender"
-    t.text     "password_digest"
+    t.string   "sex"
+    t.boolean  "regular"
+    t.string   "photo"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
 end

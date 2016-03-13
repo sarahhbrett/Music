@@ -1,33 +1,63 @@
-<h1>Listing albums</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Artist</th>
-      <th>Songs</th>
-      <th>Picture</th>
-      <th>Musicvideo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Albums</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.name %></td>
-        <td><%= album.artist_id %></td>
-        <td><%= album.songs %></td>
-        <td><%= album.picture %></td>
-        <td><%= album.musicVideo %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
 
-<br>
 
-<%= link_to 'New Album', new_album_path %>
+	<div id= 'search' align="center">
+		<%= render 'search' %>
+    </div>
+  <h1>Albums</h1>
+  
+  
+  <hr>
+  
+  
+  <% @albums.each do |album| %>
+  <div class="row">
+    <div class="col-xs-3">
+        <a href="<%=  album.musicVideo %>" class="thumbnail">
+             <%= image_tag album.picture, :size => "200x200" %>
+        </a>
+		<ul class="list-inline">
+		<li><a href="#" title="<%= album.name %>" data-toggle="popover" data-placement="top" data-content=" Number of Songs:  <%= album.songs %> "> <%= album.name %></a></li>
+		<li><a href="<%= album.musicVideo %>"> Music Video</a></li>
+		
+	   <li><%= link_to 'Show Album', album %></li>
+       <li><%= link_to 'Edit', edit_album_path(album) %></li>
+      <li> <%= link_to 'Destroy', @album, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+	  <li> <%= link_to 'Post a review for this album!', new_review_path %></li>
+    </div>
+	
+    <tbody>
+
+
+		</ul>
+  <% end %>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
+    
+<%= button_to('New Album', new_album_path, class: 'btn btn-large btn-primary', method: :get) %>
+<%= button_to('See all reviews', reviews_path, class: 'btn btn-large btn-primary', method: :get) %>
+
+
+</body>
+
+
+</html>
+

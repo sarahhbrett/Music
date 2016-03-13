@@ -3,13 +3,17 @@
 one:
   name: MyString
   email: MyString
-  dob: 2016-02-17
-  gender: MyString
-  password_digest: MyText
+  dob: 2016-02-19
+  sex: MyString
+  regular: false
+  photo: MyString
+  password_digest: MyString
 
 two:
   name: MyString
   email: MyString
-  dob: 2016-02-17
-  gender: MyString
-  password_digest: MyText
+  dob: 2016-02-19
+  sex: MyString
+  regular: false
+  photo: MyString
+  password_digest: MyString

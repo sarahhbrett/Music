@@ -1,8 +1,13 @@
+<div class="container">
+<div class="jumbotron">
 <%= form_for(@artist) do |f| %>
   <% if @artist.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
-
+	<li>
+	<div id="search">
+	   <%= render 'search' %>
+    </div></li>
       <ul>
       <% @artist.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,6 +15,7 @@
       </ul>
     </div>
   <% end %>
+  
 
   <div class="field">
     <%= f.label :name %><br>
@@ -25,5 +31,7 @@
   </div>
   <div class="actions">
     <%= f.submit %>
+  </div>
+  </div>
   </div>
 <% end %>
